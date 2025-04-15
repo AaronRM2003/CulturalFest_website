@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Festival Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+        	display: flex;
+        	flex-direction:column;
+            width: 50%;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 60px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-container label {
+            display: block;
+            margin: 10px 0 1px;
+            font-weight: bold;
+        }
+
+        .form-container input, 
+        .form-container textarea, 
+        .form-container select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-container textarea {
+            resize: vertical;
+        }
+
+        .form-container .checkbox-group {
+            margin-bottom: 50px;
+        }
+
+        .form-container .checkbox-group label {
+            font-weight: normal;
+        }
+		
+        .form-container button {
+            width: 48%;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container button.reset {
+            background-color: #dc3545;
+        }
+
+        .form-container button:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Cultural Festival Registration</h2>
+        
+        <form onsubmit="return submitButton();" action="./Register" method="post">
+            <div >
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="pass" name="pass" placeholder="Enter your password" required>
+            
+            <label for="password">Confirm password</label>
+            <input type="password" id="cpass" placeholder="Re-enter your password" required>
+
+            <label for="institute">Institute:</label>
+            <input type="text" id="institute" name="institute" placeholder="Enter your institute name" required>
+            
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" placeholder="Enter your Age " required>
+            
+      
+            <label for="qualification">Qualification:</label>
+            <select id="qualification" name="qualification" required>
+                <option value="" disabled selected>Select a category</option>
+                <option value="btech">B.Tech</option>
+                <option value="mtech">M.Tech</option>
+                <option value="phd">PHD</option>
+            </select>
+</div>
+            
+            <div class="checkbox-group" style="display: flex; flex-direction: column; ">
+            <div style="display: flex; flex-direction: row;gap: 20px;">
+                <label> Dance</label><input style="margin-top: 10px" type="checkbox" name="events" value="Dance">
+                </div>
+                <div style="display: flex; flex-direction: row;gap: 20px;">
+                <label> Singing</label><input style="margin-top: 10px" type="checkbox" name="events" value="Singing">
+                </div>
+                <div style="display: flex; flex-direction: row;gap: 20px;">
+                <label> Drama  </label><input style="margin-top: 10px" type="checkbox" name="events" value="Drama">
+                </div>
+                <div style="display: flex; flex-direction: row;gap: 20px;">
+                <label> Painting</label><input style="margin-top: 10px" type="checkbox" name="events" value="Painting">
+                </div>
+                
+            </div>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="" disabled selected>Select a category</option>
+                <option value="Student">Student</option>
+                <option value="Professional">Professional</option>
+            </select>
+
+            <label for="comments">Comments/Message:</label>
+            <textarea id="comments" name="comments" rows="4" placeholder="Any comments or additional information"></textarea>
+
+            <div style="display: flex; justify-content: space-between; justify-content: center;">
+                <button  type="submit" >Submit</button>
+                
+            </div>
+        </form>
+    </div>
+	<script type="text/javascript">
+	function submitButton(){
+		if(confirm("Are you sure you want to move forward?")){
+	const pass = document.getElementById("pass");
+	const cpass = document.getElementById("cpass");
+
+	if (pass.value != cpass.value){
+		alert("Passwords do not match");
+		return false;
+	}
+	return true;
+		}
+		else{
+			return false;
+		}
+	}
+	</script>
+</body>
+</html>
